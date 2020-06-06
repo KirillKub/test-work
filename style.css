@@ -1,0 +1,403 @@
+@font-face {
+  font-family: "FuturaDemiC";
+  src: url("assets/fonts/FuturaDemiC.eot") format("eot"),
+  url("assets/fonts/FuturaDemiC.woff") format("woff"),
+    url("assets/fonts/FuturaDemiC.ttf") format("truetype");
+}    
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype"),
+  url("assets/fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype"),
+}   
+
+@font-face {
+  font-family: "FuturaBookC";
+  src: url("assets/fonts/FuturaBookC.eot") format("eot"),
+  url("assets/fonts/FuturaBookC.woff") format("woff"),
+    url("assets/fonts/FuturaBookC.ttf") format("truetype");
+}
+
+
+.header {
+  width: 1200px;
+  padding-top: 34px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__first-section {
+  width: 258px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__first-section__logo {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.header__first-section__lang {
+  width: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__first-section__lang-rus {
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.header__first-section__lang-eng {
+  background: #E5E5E5;
+  border-radius: 5px;
+  width: 45px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__first-section__lang-eng span{
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+
+.header__first-section__line {
+  opacity: 0.2;
+  color: #000000;
+}
+
+.header__second-section {
+  width: 547px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #444444;
+}
+
+.header__second-section div:hover {
+  cursor: pointer;
+}
+
+.header__second-section__search {
+  width: 58px;
+  text-align: center;
+  border-left: 1px solid #b9b9b9;
+  border-right: 1px solid #b9b9b9;
+  height: 20px;
+}
+
+.main {
+  background: #FFFFFF;
+  margin: 0 auto;
+  width: 1440px;
+  height: 900px;
+  background: url('./assets/bg1.png');
+  transition: 1s;
+}
+
+.main-section1 {
+  padding-top: 309px;
+  padding-left: 120px;
+}
+
+.main-section1__title {
+  width: 666px;
+  height: 45px;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 96px;
+  line-height: 21px;
+  color: #425A20;
+}
+
+.main-section1__desc {
+  width: 618px;
+  margin-top: 47px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-section1__desc-title {
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #425A20;
+}
+
+.main-section1__desc-text {
+  margin-top: 16px;
+  width: 285px;
+  font-family: FuturaBookC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(68, 68, 68, 0.9);
+}
+
+.main-section1__info {
+  display: flex;
+  margin-top: 40px;
+  width: 367px;
+  justify-content: space-between;
+}
+
+.main-section1__btn-wrap {
+  position: relative;
+}
+
+.main-section1__btn-border {
+  position: absolute;
+  width: 199px;
+  height: 45px;
+  border: 0.5px solid #000000;
+  transform:rotate(-2.09deg);
+  border-radius: 5px;
+}
+
+.main-section1__btn {
+  width: 200px;
+  height: 46px;
+  background: #597D4E;
+  border-radius: 5px;
+  border: 0;
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+
+.main-section1__btn-border:hover {
+  cursor: pointer;
+}
+
+.main-section1__view {
+  display: flex;
+  align-items: center;
+}
+
+
+.main-section1__view:hover {
+  cursor: pointer;
+}
+
+.main-section1__view-text {
+  width: 97px;
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #425A20;
+  margin-left: 5px;
+}
+
+.main-section2 {
+  width: 757px;
+  display: flex;
+  justify-content: space-between;
+  margin: 170px 0 0 120px;
+}
+
+.main-section2__links {
+  display: flex;
+  width: 267px;
+  justify-content: space-between;
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+
+.main-section2__links div:hover {
+  cursor: pointer;
+}
+
+.main-section2__slider {
+  width: 312px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Zilla Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #222222;
+}
+
+.main-section2__line {
+  display: flex;
+  width: 198px;
+}
+
+.main-section2__line-first {
+  width: 180px;
+  border: 1px solid #425A20;
+}
+
+.main-section2__line-second {
+  width: 18px;
+  border: 1px solid rgba(66, 90, 32, 0.38);
+}
+
+.main-section2__slider img[alt=left]:hover {
+  cursor: pointer;
+}
+
+.main-section2__slider img[alt=right]:hover {
+  cursor: pointer;
+}
+
+.slider {
+  width: 800px;
+  display: flex;
+  overflow: hidden;
+}
+
+.slider-item {
+  transition: 1s;
+}
+
+#close {
+  cursor: pointer;
+  font-family: FuturaDemiC;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  display: none;
+}
+
+#close img {
+  margin-left: 14px;
+}
+
+.full-menu { 
+  position: relative;
+  margin-top: 153px;
+  display: none;
+}
+
+.full-menu div {
+  width: 300px;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 64px;
+  align-items: center;
+  text-align: center;
+  color: #444444;
+  margin: 39px auto;
+}
+
+.full-menu:hover div{
+  opacity: 0.5;
+}
+
+.full-menu div:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: #425A20;
+}
+
+.menu-item-img1 {
+  opacity: 1;
+  right: 300px;
+  top: 0;
+  position: absolute;
+  display: none;
+}
+
+.menu-item-img2 {
+  opacity: 1;
+  display: none;
+  left: 300px;
+  top: 56px;
+  position: absolute;
+}
+
+.full-search {
+  display: none;
+  justify-content: space-between;
+  width: 651px;
+  align-items: center;
+}
+
+.search {
+  width: 585px;
+  border-bottom: 1px solid #b9b9b9;
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.search img[alt='search'] {
+  padding-left: 9px;
+  border-left: 1px solid #b9b9b9;
+}
+
+.search img[alt='close'] {
+  padding-right: 26px;
+  border-right: 1px solid #b9b9b9;
+}
+
+.search input {
+  padding-left: 10px;
+  width: 505px;
+  border: 0;
+  background: #F3F3F3;
+}
+
+.search input:focus, .search input:active {
+  outline: 0;
+}
+
+.search input::placeholder {
+  font-family: FuturaBookC;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #444444;
+  opacity: 0.5;
+}
+
+.full-search:hover {
+  cursor: pointer;
+}
