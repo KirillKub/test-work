@@ -4,12 +4,12 @@
     <BaseMoney></BaseMoney>
     <table>
       <tr>
-        <th>Код</th>
+        <th>{{$t('main.code')}}</th>
         <th>{{base}}</th>
-        <th>Валюты</th>
-        <th>Получите</th>
+        <th>{{$t('main.сurrencies')}}</th>
+        <th>{{$t('main.get')}}</th>
       </tr>
-      <TableItem v-for="(elem, i) in elements"
+      <TableItem v-for="(elem, i) in getElements"
       v-bind:key="i"
       v-bind:elem="elem"
       ></TableItem>
@@ -21,7 +21,6 @@
 import axios from 'axios';
 import TableItem from './TableItem.vue';
 import Select from './Select.vue';
-import values from './values';
 import BaseMoney from './BaseMoney.vue';
 
 export default {
@@ -45,17 +44,26 @@ export default {
     },
   },
 
+  computed: {
+    getElements() {
+      return this.elements.map((item) => ({
+        id: item.id,
+        cost: item.cost,
+        name: this.$t('main.names')[item.id],
+      }));
+    },
+  },
+
   mounted() {
     axios.get(`https://api.exchangeratesapi.io/latest?base=${this.base}`)
       .then((res) => {
-        console.log(res.data);
         const keys = Object.keys(res.data.rates);
         const arr = [];
         for (let i = 0; i < keys.length; i += 1) {
           const obj = {
             id: keys[i],
             cost: res.data.rates[keys[i]],
-            name: values[keys[i]],
+            name: this.$t('main.names')[keys[i]],
           };
           arr.push(obj);
         }

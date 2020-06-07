@@ -1,7 +1,7 @@
 <template>
   <select v-on:change="selectItem($event)">
-    <option disabled selected>Выбирите валюту(Добавить в избранное)</option>
-    <option v-for="(name,i) in names"
+    <option disabled selected>{{$t('main.select')}}</option>
+    <option v-for="(name,i) in getNames"
     v-bind:key="i"
     v-bind:value="i">
     >{{name}}</option>
@@ -9,25 +9,18 @@
 </template>
 
 <script>
-
-import values from './values';
-
 export default {
-  data() {
-    return {
-      names: [],
-    };
-  },
   methods: {
     selectItem(event) {
       const id = event.target.value;
-      const keys = Object.keys(values);
+      const keys = Object.keys(this.$t('main.names'));
       this.$emit('select-item', keys[id]);
     },
   },
-
-  mounted() {
-    this.names = Object.values(values);
+  computed: {
+    getNames() {
+      return Object.values(this.$t('main.names'));
+    },
   },
 };
 </script>

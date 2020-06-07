@@ -1,6 +1,6 @@
 <template>
   <div class="select-base">
-    <select title="изменить базовую валюту" v-model="baseMoney" v-on:change="selectItem">
+    <select v-bind:title="$t('main.changeCurrency')" v-model="baseMoney" v-on:change="selectItem">
         <option v-for="(item,i) in countries"
         v-bind:value="item"
         v-bind:key="i"
@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import values from './values';
-
 export default {
   data() {
     return {
@@ -29,7 +27,7 @@ export default {
   },
 
   mounted() {
-    this.countries = Object.keys(values);
+    this.countries = Object.keys(this.$t('main.names'));
   },
 };
 </script>
