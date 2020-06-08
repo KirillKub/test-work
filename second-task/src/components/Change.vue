@@ -2,15 +2,16 @@
   <div>
     <div class="value">
       <select v-model="name" v-on:change="selectItem">
-        <option v-for="(item,i) in countries"
+        <option v-for="(item,i) in getCountries"
         v-bind:value="item.name"
         v-bind:key="i"
         >{{item.name}}</option>
+        <option v-if="name === 'EUR'">EUR</option>
       </select>
       <input v-model="price" type="text">
     </div>
     <div class="exchanger">
-      <div class="exchanger-item" v-for="(item,i) in countries" v-bind:key="i">
+      <div class="exchanger-item" v-for="(item,i) in getCountries" v-bind:key="i">
         <span>{{item.name}}</span>
         <input type="text" v-bind:value="item.value | newPrice(price)" disabled>
       </div>
@@ -24,28 +25,20 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      countries: [],
       price: 1,
-      name: localStorage.getItem('baseMoney') || 'USD',
+      name: this.$store.state.baseMoney,
     };
+  },
+
+  computed: {
+    getCountries() {
+      return this.$store.state.countries;
+    },
   },
 
   methods: {
     selectItem(event) {
-      const item = event.target.value;
-      axios.get(`https://api.exchangeratesapi.io/latest?base=${item}`)
-        .then((res) => {
-          const arr = [];
-          const keys = Object.keys(res.data.rates);
-          for (let i = 0; i < keys.length; i += 1) {
-            const obj = {
-              name: keys[i],
-              value: res.data.rates[keys[i]],
-            };
-            arr.push(obj);
-          }
-          this.countries = arr;
-        });
+      this.$store.dispatch('getData', event);
     },
   },
 
@@ -56,19 +49,7 @@ export default {
   },
 
   mounted() {
-    axios.get(`https://api.exchangeratesapi.io/latest?base=${this.name}`)
-      .then((res) => {
-        const arr = [];
-        const keys = Object.keys(res.data.rates);
-        for (let i = 0; i < keys.length; i += 1) {
-          const obj = {
-            name: keys[i],
-            value: res.data.rates[keys[i]],
-          };
-          arr.push(obj);
-        }
-        this.countries = arr;
-      });
+    this.$store.dispatch('getData', this.name);
   },
 
 };

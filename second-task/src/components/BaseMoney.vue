@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      baseMoney: localStorage.getItem('baseMoney') || 'USD',
+      baseMoney: this.$store.state.baseMoney,
       countries: [],
     };
   },
@@ -21,7 +21,6 @@ export default {
   methods: {
     selectItem(event) {
       const name = event.target.value;
-      this.$emit('change-base', name);
       localStorage.setItem('baseMoney', name);
     },
   },

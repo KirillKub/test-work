@@ -14,7 +14,8 @@ export default {
     selectItem(event) {
       const id = event.target.value;
       const keys = Object.keys(this.$t('main.names'));
-      this.$emit('select-item', keys[id]);
+      const name = keys[id];
+      this.$store.commit('changeTableItem', name);
     },
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Select v-on:select-item="selectItem"></Select>
+    <Select></Select>
     <BaseMoney></BaseMoney>
     <table>
       <tr>
@@ -30,23 +30,13 @@ export default {
 
   data() {
     return {
-      elements: [],
       base: localStorage.getItem('baseMoney') || 'USD',
     };
   },
 
-  methods: {
-    selectItem(name) {
-      const newList = this.elements.filter((item) => item.id !== name);
-      const elem = this.elements.find((item) => item.id === name);
-      newList.unshift(elem);
-      this.elements = newList;
-    },
-  },
-
   computed: {
     getElements() {
-      return this.elements.map((item) => ({
+      return this.$store.state.tableItems.map((item) => ({
         id: item.id,
         cost: item.cost,
         name: this.$t('main.names')[item.id],
@@ -55,21 +45,7 @@ export default {
   },
 
   mounted() {
-    axios.get(`https://api.exchangeratesapi.io/latest?base=${this.base}`)
-      .then((res) => {
-        const keys = Object.keys(res.data.rates);
-        const arr = [];
-        for (let i = 0; i < keys.length; i += 1) {
-          const obj = {
-            id: keys[i],
-            cost: res.data.rates[keys[i]],
-            name: this.$t('main.names')[keys[i]],
-          };
-          arr.push(obj);
-        }
-        this.elements = arr;
-        this.base = res.data.base;
-      });
+    this.$store.dispatch('getTableItems');
   },
 };
 </script>
