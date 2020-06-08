@@ -5,8 +5,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Vue from 'vue';
 import Change from '../components/Change.vue';
 
 export default {

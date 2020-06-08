@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import TableItem from './TableItem.vue';
 import Select from './Select.vue';
 import BaseMoney from './BaseMoney.vue';
